@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   Florería Los Lirios — Estilos globales
+   ============================================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-brand-bg text-brand-text font-body antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+
+  /* Scrollbar personalizado */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-300 rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500;
+  }
+}
+
+@layer components {
+  /* Botones */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-primary-500 hover:bg-primary-600 active:bg-primary-700
+           text-white font-semibold px-6 py-3 rounded-lg
+           transition-all duration-200 focus:outline-none
+           focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-white hover:bg-gray-50 active:bg-gray-100
+           text-primary-600 font-semibold px-6 py-3 rounded-lg
+           border border-primary-300
+           transition-all duration-200 focus:outline-none
+           focus:ring-2 focus:ring-primary-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2
+           bg-accent-500 hover:bg-accent-600 active:bg-accent-700
+           text-white font-semibold px-6 py-3 rounded-lg
+           transition-all duration-200 focus:outline-none
+           focus:ring-2 focus:ring-accent-500 focus:ring-offset-2
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           bg-transparent hover:bg-gray-100 active:bg-gray-200
+           text-brand-text font-medium px-4 py-2 rounded-lg
+           transition-all duration-200 focus:outline-none;
+  }
+
+  /* Inputs */
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg border border-brand-border
+           bg-white text-brand-text placeholder-brand-muted
+           focus:outline-none focus:ring-2 focus:ring-primary-400
+           focus:border-primary-400 transition-colors duration-200
+           disabled:bg-gray-50 disabled:cursor-not-allowed;
+  }
+
+  .input-error {
+    @apply border-accent-500 focus:ring-accent-400 focus:border-accent-500;
+  }
+
+  .label-field {
+    @apply block text-sm font-medium text-brand-text mb-1;
+  }
+
+  .error-message {
+    @apply text-accent-500 text-xs mt-1;
+  }
+
+  /* Cards */
+  .card {
+    @apply bg-white rounded-xl shadow-card overflow-hidden;
+  }
+
+  .card-hover {
+    @apply transition-shadow duration-300 hover:shadow-card-hover;
+  }
+
+  /* Skeleton loading */
+  .skeleton {
+    @apply bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200
+           bg-[length:200%_100%] animate-shimmer rounded;
+  }
+
+  /* Badges de estado de pedido */
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold;
+  }
+
+  .badge-pendiente   { @apply bg-yellow-100 text-yellow-800; }
+  .badge-confirmado  { @apply bg-blue-100   text-blue-800;   }
+  .badge-preparando  { @apply bg-orange-100 text-orange-800; }
+  .badge-enviado     { @apply bg-purple-100 text-purple-800; }
+  .badge-entregado   { @apply bg-green-100  text-green-800;  }
+  .badge-cancelado   { @apply bg-red-100    text-red-800;    }
+
+  /* Contenedor principal */
+  .container-main {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Sección con padding vertical estándar */
+  .section-padding {
+    @apply py-12 md:py-16 lg:py-20;
+  }
+}
+
+@layer utilities {
+  /* Gradiente verde de la marca */
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, #2d6a4f 0%, #40916c 50%, #52b788 100%);
+  }
+
+  /* Línea decorativa debajo de títulos */
+  .title-underline::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #e63946;
+    margin-top: 8px;
+    border-radius: 2px;
+  }
+
+  .title-underline-center::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #e63946;
+    margin: 8px auto 0;
+    border-radius: 2px;
+  }
+
+  /* Truncar texto a N líneas */
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
